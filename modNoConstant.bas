@@ -99,11 +99,11 @@ Public Function GetcurrentConnectInfo(ByRef Con As String, ByRef ConBB As String
 
 10    On Error GoTo GetcurrentConnectInfo_Error
 ''Comment
-'20    If IsIDE Then
-'30      CurrentPath = "C:\ClientCode\NetAcquire.INI"
-'40    Else
-'50      CurrentPath = App.Path & "\NetAcquire.INI"
-'60    End If
+20    If IsIDE Then
+30      CurrentPath = "C:\ClientCode\NetAcquire.INI"
+40    Else
+50      CurrentPath = App.Path & "\NetAcquire.INI"
+60    End If
 
 70    HospitalNames = GetINISectionNames(CurrentPath, n)
 80    HospitalName = HospitalNames(0)
@@ -124,7 +124,7 @@ Public Function GetcurrentConnectInfo(ByRef Con As String, ByRef ConBB As String
 '            "uid=" & UID & ";" & _
 '            "pwd=" & PWD & ";"
 190                   Con = "Provider=SQLOLEDB;" & _
-              "Data Source=" & "DESKTOP-3OMS1N5\SQLEXPRESS" & ";" & _
+              "Data Source=" & "WIN-LS4D35ITV6L" & ";" & _
               "Initial Catalog=" & "PortLive" & ";" & _
               "Integrated Security=SSPI;"
 '
