@@ -1,18 +1,18 @@
 VERSION 5.00
-Object = "{5E9E78A0-531B-11CF-91F6-C2863C385E30}#1.0#0"; "MSFLXGRD.OCX"
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
+Object = "{5E9E78A0-531B-11CF-91F6-C2863C385E30}#1.0#0"; "msflxgrd.ocx"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.ocx"
 Begin VB.Form frmMain 
    BorderStyle     =   1  'Fixed Single
    Caption         =   "NetAcquire - Print Handler"
-   ClientHeight    =   4605
+   ClientHeight    =   12825
    ClientLeft      =   3675
    ClientTop       =   4440
-   ClientWidth     =   3885
+   ClientWidth     =   23625
    Icon            =   "frmMain.frx":0000
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
-   ScaleHeight     =   4605
-   ScaleWidth      =   3885
+   ScaleHeight     =   12825
+   ScaleWidth      =   23625
    Begin MSFlexGridLib.MSFlexGrid g 
       Height          =   4365
       Left            =   4050

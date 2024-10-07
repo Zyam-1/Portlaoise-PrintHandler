@@ -1261,6 +1261,8 @@ Public Sub PrintResultBioWin(Optional ByVal PrintA4 As Boolean = False)
       Dim FooterLines As Integer
       Dim LineNoStartComment As Integer
       Dim TotalPages As Integer
+      Dim SqlTestPerformedAt As String
+      Dim TestPerfTB As Recordset
 
 10    On Error GoTo PrintResultBioWin_Error
 
@@ -1510,6 +1512,7 @@ Public Sub PrintResultBioWin(Optional ByVal PrintA4 As Boolean = False)
 
 
 2090              TestPerformedAt = ""
+                  HospName(0) = "Portlaoise"
 2100              If UCase(HospName(0)) <> UCase(br.Hospital) Then
 2110                  TestPerformedAt = Left(UCase(br.Hospital), 1)
 2120                  If InStr(ExternalTestingNote, UCase(br.Hospital)) = 0 Then
@@ -1518,9 +1521,22 @@ Public Sub PrintResultBioWin(Optional ByVal PrintA4 As Boolean = False)
 2150                  TestPerformedAt = "(" & TestPerformedAt & ")"
 2160              End If
 
-
+                  SqlTestPerformedAt = "SELECT TOP 1 Hospital FROM BioTestDefinitions WHERE Code = '" & br.Code & "' And (Hospital IS NOT NULL OR Hospital <> '')"
+                  Set TestPerfTB = New Recordset
+                  RecOpenClient 0, TestPerfTB, SqlTestPerformedAt
+                  If Not TestPerfTB Is Nothing Then
+                    If Not TestPerfTB.EOF Then
+                        If Trim(UCase(TestPerfTB!Hospital)) = "TULLAMORE" Then
+                            TestPerformedAt = "(T)"
+                        End If
+                        If Trim(UCase(TestPerfTB!Hospital)) = "MULLINGAR" Then
+                            TestPerformedAt = "(M)"
+                        End If
+                    End If
+                  End If
+                  
 2170              lp(lpc) = lp(lpc) & Left(br.LongName & TestPerformedAt & Space(20), 20)
-2180              udtPrintLine(lpc).Analyte = Left(br.LongName & Space(16), 16)
+2180              udtPrintLine(lpc).Analyte = Left(br.LongName & TestPerformedAt & Space(16), 16)
 
 2190              If TestAffected(br) = False Then
 2200                  If IsNumeric(v) Then
