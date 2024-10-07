@@ -4,15 +4,15 @@ Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.ocx"
 Begin VB.Form frmMain 
    BorderStyle     =   1  'Fixed Single
    Caption         =   "NetAcquire - Print Handler"
-   ClientHeight    =   12825
+   ClientHeight    =   4785
    ClientLeft      =   3675
    ClientTop       =   4440
-   ClientWidth     =   23625
+   ClientWidth     =   3915
    Icon            =   "frmMain.frx":0000
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
-   ScaleHeight     =   12825
-   ScaleWidth      =   23625
+   ScaleHeight     =   4785
+   ScaleWidth      =   3915
    Begin MSFlexGridLib.MSFlexGrid g 
       Height          =   4365
       Left            =   4050
